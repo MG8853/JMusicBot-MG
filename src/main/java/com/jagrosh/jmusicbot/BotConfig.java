@@ -238,7 +238,7 @@ public class BotConfig
     {
         return searchingEmoji;
     }
-    
+
     public Activity getGame()
     {
         return game;

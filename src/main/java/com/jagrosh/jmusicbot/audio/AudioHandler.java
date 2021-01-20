@@ -285,16 +285,16 @@ public class AudioHandler extends AudioEventAdapter implements AudioSendHandler
 
         return data;
     }*/
-    
+
     @Override
-    public boolean canProvide() 
+    public boolean canProvide()
     {
         lastFrame = audioPlayer.provide();
         return lastFrame != null;
     }
 
     @Override
-    public ByteBuffer provide20MsAudio() 
+    public ByteBuffer provide20MsAudio()
     {
         return ByteBuffer.wrap(lastFrame.getData());
     }

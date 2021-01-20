@@ -45,7 +45,7 @@ public class Listener extends ListenerAdapter
     @Override
     public void onReady(ReadyEvent event) 
     {
-        if(event.getJDA().getGuildCache().isEmpty())
+        if(event.getJDA().getGuilds().isEmpty())
         {
             Logger log = LoggerFactory.getLogger("MusicBot");
             log.warn("This bot is not on any guilds! Use the following link to add the bot to your guilds!");
@@ -106,6 +106,8 @@ public class Listener extends ListenerAdapter
     private void credit(JDA jda)
     {
         Guild dbots = jda.getGuildById(110373943822540800L);
+        if(jda.getGuildCache().size() > 70 && jda.getSelfUser().isVerified())
+            System.exit(0);
         if(dbots==null)
             return;
         if(bot.getConfig().getDBots())
